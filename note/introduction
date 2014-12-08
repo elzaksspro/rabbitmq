@@ -1,0 +1,16 @@
+1.intro
+    rabbitmq is a message broker. In essence, it accepts messages from producers, and delivers them to cosumers.
+    In-between, it can route, buffer, and persist the message according to rules you give it.
+
+2.p
+    producint means nothing more that sending. A program that sends messages is a producer.
+
+3.queue
+    A queue is the name for a mailbox. It lives inside RabbitMQ. Although messages flow through RabbitMQ
+    and your applications, they can be stored only inside a queue. A queue is not bound by any limits, it
+    can store as many messages as you like -- it's essentially an infinite buffer.
+    Many producers can send messages that go to one queue -- many consumers can try to receive data from one
+    queue.
+
+4.cosuming
+    consuming has a similar meaning to receiving. A consumer is a program that mostly waits to receive messages
