@@ -10,6 +10,9 @@ amqp.connect('amqp://localhost').then(function (conn) {
     return conn.createChannel().then(function (ch) {
        var ok = ch.assertExchange('logs', 'fanout', {durable: false});
         ok = ok.then(function () {
+            // 当我们连接上RabbitMQ的时候，我们需要一个全新的，空的队列。我们可以手动创建一个随机的队列名
+            // 或者让服务器为我们选择一个随机的队列名，声明的时候传入''就可以了。 exclusive:true表示当
+            // 消费者断开连接时候，这个队列应当被删除
             return ch.assertQueue('', {exclusive: true});
         });
         ok = ok.then(function (qok) {
