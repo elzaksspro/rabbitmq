@@ -1,0 +1,14 @@
+Ubuntu上的安装
+    |-- Add the following line to your /etc/apt/sources.list:
+        ```
+        deb http://www.rabbitmq.com/debian/ testing main
+        ```
+    |-- To avoid warning about unsigned packages, add our public key to your trusted key list using apt-key(8)
+        ```
+        wget https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+        sudo apt-key add rabbitmq-signing-key-public.asc
+
+        ```
+    |-- Run `apt-get update`
+    |-- Install packages as usual; for instance,
+    |-- `sudo apt-get install rabbitmq-server`

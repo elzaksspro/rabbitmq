@@ -1,0 +1,47 @@
+1. Managing the Broker
+    To stop the server or check its status, you can invoke `rabbitmqctl`.All rabbitmqctrl command will
+    report the node absence if no broker is running.
+    ```
+    Invoke `rabbitmqctl stop` to stop the server
+    Invoke `rabbitmqctl status` to check whether it is running
+    ```
+2. check queue
+    ```
+    rabbitmqctl list_queues
+    ```
+
+    Listing queues ...
+    emails	0
+    hello	0
+    iceberg_queue	0
+    iceberg_queue_btcltc	0
+    iceberg_queue_cnyltc	0
+    monet_callback	0
+    siotrades_lijidev_3000	0
+    stoporderqueue	0
+    stoporderqueue_btcltc	0
+    stoporderqueue_cnyltc	0
+    task_queue	2
+    trailingstoporder	0
+    trailingstoporder_btcltc	0
+    trailingstoporder_cnyltc	0
+
+3. check ack
+    ```
+    rabbitmqctl list_queues name messages_ready messages_unacknowledged
+    ```
+    |-- messages_unacknowledged
+        该message已经被worker处理，但是worker还没有ack
+    |-- messages_ready
+        代表queue中尚未被consume的messaeg,此外，当worker在处理的工程中死掉时，这条message的状态
+        会由: messages_unacknowledged ---> messages_ready
+    |-- 解释:
+        上面的命令表达的意思是: 列出list_queues相关的内容，分别是name, messages_ready, messages_unacknowledged
+        所以下面3列的意思就分别代表queue的上述3个方面
+
+    stoporderqueue_cnyltc	0	0
+    task_queue	2	0
+    trailingstoporder	0	0
+    trailingstoporder_btcltc	0	0
+    trailingstoporder_cnyltc	0	0
+    ...done.

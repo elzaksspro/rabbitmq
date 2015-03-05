@@ -1,0 +1,6 @@
+1. Logging
+    |-- output from the server is sent to a `RABBIMQ_NODENAME.log` file in the
+        `RABBITMQ_LOG_BASE` directory
+    |-- Additional log data is written to `RABBIMQ_NODENAME-sasl.log`
+    |-- The broker always appends to the log file, so a complete log history is retained
+    |-- By default, files located in default /var/log/rabbitmq directory

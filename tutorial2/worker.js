@@ -25,7 +25,7 @@ amqp.connect('amqp://localhost').then(function (conn) {
             console.log('task takes ', secs);
             setTimeout(function () {
                 console.log(' x done');
-                ch.ack(msg);
+//                ch.ack(msg);
             }, secs * 1000);
         }
     });
