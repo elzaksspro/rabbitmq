@@ -45,3 +45,10 @@
     trailingstoporder_btcltc	0	0
     trailingstoporder_cnyltc	0	0
     ...done.
+
+4. exchanges
+    ```
+    rabbitmqctl list_exchanges
+    ```
+5. binding
+    You can list existing bindings using, you guessed it, rabbitmqctl list_bindings.
