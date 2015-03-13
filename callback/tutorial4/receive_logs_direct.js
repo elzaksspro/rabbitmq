@@ -27,7 +27,7 @@ function on_connect(err, conn) {
         var ex = 'direct_logs';
         var exopts = {durable: false};
 
-        ch.assertExchange(ex, 'direct', exopts);
+        ch.assertExchange(ex, 'direct');
         ch.assertQueue('', {exclusive: true}, function (err, ok) {
             if (err) return bail(err);
             var queue = ok.queue;
